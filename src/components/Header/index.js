@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { Container, Logo } from './styles'
+import { HeaderContainer, Logo } from './styles'
 
 import webmotors from './../../styles/images/webmotors.png'
 
 const Header = () => {
   return (
-    <Container>
+    <HeaderContainer>
       <Logo src={webmotors} />
-    </Container>
+    </HeaderContainer>
   )
 }
 

@@ -4,14 +4,14 @@ import CarButtonTab from './CarButtonTab'
 import MotorcycleButtonTab from './MotorcycleButtonTab'
 import SellCarButton from './SellCarButton'
 
-import { Container, Column } from './styles'
+import { HeaderContainer, HeaderColumn } from './styles'
 
 const HeaderActions = () => {
   const [vehicleType, setVehicleType] = useState('car')
 
   return (
-    <Container>
-      <Column>
+    <HeaderContainer>
+      <HeaderColumn>
         <CarButtonTab
           active={vehicleType === 'car'}
           onClick={() => setVehicleType('car')}
@@ -20,11 +20,11 @@ const HeaderActions = () => {
           active={vehicleType === 'motorcycle'}
           onClick={() => setVehicleType('motorcycle')}
         />
-      </Column>
-      <Column>
+      </HeaderColumn>
+      <HeaderColumn isFlexEnd={true}>
         <SellCarButton />
-      </Column>
-    </Container>
+      </HeaderColumn>
+    </HeaderContainer>
   )
 }
 

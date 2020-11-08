@@ -2,12 +2,12 @@ import styled from 'styled-components'
 import { GiCityCar } from 'react-icons/gi'
 import { FaMotorcycle } from 'react-icons/fa'
 
-export const Container = styled.div`
+export const TabContainer = styled.div`
   display: flex;
   flex: 0 0 160px;
 `
 
-export const Button = styled.button`
+export const TabButton = styled.button`
   display: flex;
   flex: 1;
   cursor: pointer;
@@ -49,19 +49,18 @@ export const MotorcycleIcon = styled(FaMotorcycle)`
   margin-bottom: 6px;
 `
 
-export const LabelsContainer = styled.div`
+export const LabelContainer = styled.div`
   text-align: left;
 `
 
 export const SubtitleLabel = styled.span`
-  text-align: left;
-  font-size: 14px;
   color: #999;
+  font-size: 14px;
 `
 
 export const TitleLabel = styled.span`
-  font-size: 18px;
   color: #999;
+  font-size: 18px;
   font-weight: 500;
 `
 
@@ -70,7 +69,7 @@ export const OutlineButton = styled.button`
   color: #ff8c00;
   border: 2px solid #ff8c00;
   font-size: 1em;
-  padding: 10px 30px;
+  padding: 10px 32px;
   font-weight: bold;
   border-radius: 4px;
   outline: none;
@@ -89,6 +88,5 @@ export const OutlineButton = styled.button`
 `
 
 export const SellButtonContainer = styled.div`
-  justify-content: flex-end;
   padding-top: 4px;
 `

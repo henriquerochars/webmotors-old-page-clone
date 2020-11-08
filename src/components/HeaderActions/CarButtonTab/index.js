@@ -1,10 +1,10 @@
 import React from 'react'
 
 import {
-  Container,
-  Button,
+  TabContainer,
+  TabButton,
   CarIcon,
-  LabelsContainer,
+  LabelContainer,
   SubtitleLabel,
   TitleLabel
 } from '../button-styles'
@@ -16,17 +16,17 @@ const content = {
 
 const CarButtonTab = ({ active, onClick }) => {
   return (
-    <Container>
-      <Button active={active} onClick={onClick}>
+    <TabContainer>
+      <TabButton active={active} onClick={onClick}>
         <CarIcon />
-        <LabelsContainer>
+        <LabelContainer>
           <div>
             <SubtitleLabel>{content.subtitle}</SubtitleLabel>
           </div>
           <TitleLabel className="dinamic-title">{content.title}</TitleLabel>
-        </LabelsContainer>
-      </Button>
-    </Container>
+        </LabelContainer>
+      </TabButton>
+    </TabContainer>
   )
 }
 
