@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import CarButtonTab from './CarButtonTab'
 import MotorcycleButtonTab from './MotorcycleButtonTab'
+import SellCarButton from './SellCarButton'
 
 import { Container, Column } from './styles'
 
@@ -19,6 +20,9 @@ const HeaderActions = () => {
           active={vehicleType === 'motorcycle'}
           onClick={() => setVehicleType('motorcycle')}
         />
+      </Column>
+      <Column>
+        <SellCarButton />
       </Column>
     </Container>
   )
