@@ -4,7 +4,7 @@ import { Container, Logo } from './styles'
 
 import webmotors from './../../styles/images/webmotors.png'
 
-function Header() {
+const Header = () => {
   return (
     <Container>
       <Logo src={webmotors} />
