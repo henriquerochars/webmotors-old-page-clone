@@ -2,7 +2,7 @@ import React from 'react'
 
 import { HeaderContainer, Logo } from './styles'
 
-import webmotors from './../../styles/images/webmotors.png'
+import webmotors from './../../assets/images/webmotors-logo.png'
 
 const Header = () => {
   return (

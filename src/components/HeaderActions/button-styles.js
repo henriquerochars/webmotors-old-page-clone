@@ -27,6 +27,10 @@ export const TabButton = styled.button`
         .dinamic-title {
           color: #b80000;
         },
+
+        .dinamic-icon {
+          color: #b80000;
+        },
       }
     `
   }};

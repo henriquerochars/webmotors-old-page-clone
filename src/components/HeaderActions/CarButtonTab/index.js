@@ -17,7 +17,7 @@ const content = {
 const CarButtonTab = ({ active, onClick }) => {
   return (
     <TabContainer>
-      <TabButton active={active} onClick={onClick}>
+      <TabButton active={active} onClick={onClick} className="dinamic-icon">
         <CarIcon />
         <LabelContainer>
           <div>
