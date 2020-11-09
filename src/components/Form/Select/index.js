@@ -1,16 +1,9 @@
 import React, { useState } from 'react'
+import { SelectContainer, SelectButton, ContainerLabel, Label } from './styles'
 import * as S from './styles'
 
 const Select = props => {
-  const {
-    placeholder = 'Change-Me',
-    onChange,
-    value,
-    label,
-    options,
-    containerStyle,
-    description
-  } = props
+  const { placeholder, onChange, value, label, options, description } = props
 
   const [showOptions, setShowOptions] = useState(false)
 
@@ -28,13 +21,13 @@ const Select = props => {
   }
 
   return (
-    <S.container style={containerStyle}>
-      <S.clickable onClick={() => setShowOptions(!showOptions)}>
+    <SelectContainer>
+      <SelectButton onClick={() => setShowOptions(!showOptions)}>
         {value ? (
-          <React.Fragment>
-            <S.containerLabel>
-              <S.label>{label}: </S.label>
-            </S.containerLabel>
+          <>
+            <ContainerLabel>
+              <Label>{label}: </Label>
+            </ContainerLabel>
             <S.containerValue>
               <S.value>
                 {displayLabel(value)} {description}
@@ -43,18 +36,18 @@ const Select = props => {
             <S.containerIcon>
               <S.icon />
             </S.containerIcon>
-          </React.Fragment>
+          </>
         ) : (
-          <React.Fragment>
+          <>
             <S.containerPlaceholder>
-              <S.label>{placeholder}</S.label>
+              <Label>{placeholder}</Label>
             </S.containerPlaceholder>
             <S.containerIcon>
               <S.icon />
             </S.containerIcon>
-          </React.Fragment>
+          </>
         )}
-      </S.clickable>
+      </SelectButton>
 
       {Array.isArray(options) && (
         <S.containerOptions visible={showOptions} className="containerOptions">
@@ -70,7 +63,7 @@ const Select = props => {
           })}
         </S.containerOptions>
       )}
-    </S.container>
+    </SelectContainer>
   )
 }
 

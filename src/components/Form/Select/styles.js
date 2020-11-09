@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 import iconImage from '../../../assets/images/downArrow.png'
 
-export const container = styled.div`
+export const SelectContainer = styled.div`
   display: flex;
+  position: relative;
+  background: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
-  position: relative;
-  background: white;
   height: 35px;
 
   &:hover {
@@ -14,17 +14,32 @@ export const container = styled.div`
   }
 `
 
+export const SelectButton = styled.button`
+  display: flex;
+  flex: 1;
+  cursor: pointer;
+  background: none;
+  padding: 8px 5px;
+  border: none;
+  outline: none;
+  text-align: left;
+`
+
+export const ContainerLabel = styled.div`
+  flex: 0 1;
+`
+
 export const containerOptions = styled.div`
   display: none;
   position: absolute;
+  width: 100%;
   top: 100%;
   left: 0;
-  width: 100%;
   background: #fff;
   border: 1px solid #ddd;
-  z-index: 20;
   max-height: 200px;
   overflow-y: auto;
+  z-index: 100;
 
   ${props => {
     if (props.visible) {
@@ -35,10 +50,6 @@ export const containerOptions = styled.div`
 
     return ``
   }}
-`
-
-export const containerLabel = styled.div`
-  flex: 0 1;
 `
 
 export const containerPlaceholder = styled.div`
@@ -57,17 +68,6 @@ export const containerIcon = styled.div`
   align-self: center;
 `
 
-export const clickable = styled.button`
-  display: flex;
-  flex: 1;
-  padding: 8px 5px;
-  background: none;
-  border: none;
-  outline: none;
-  text-align: left;
-  cursor: pointer;
-`
-
 export const icon = styled.div`
   display: inline-block;
   width: 7px;
@@ -76,7 +76,7 @@ export const icon = styled.div`
   background-size: contain;
 `
 
-export const label = styled.div`
+export const Label = styled.div`
   color: #999;
   font-size: 14px;
   white-space: nowrap;

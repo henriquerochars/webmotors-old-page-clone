@@ -4,6 +4,8 @@ import Image from '../../assets/images/local.png'
 import Checkbox from './../Form/Checkbox'
 import PlaceInput from './../Form/PlaceInput'
 import Select from './../Form/Select'
+import ButtonsForm from './../Form/ButtonsForm'
+import TogglerLink from './../Form/TogglerLink'
 
 import {
   FiltersBoardContainer,
@@ -154,6 +156,18 @@ const FiltersBoard = props => {
             </FiltersBoardCol>
           </FiltersBoardRow>
         </FormContainer>
+      </FiltersBoardRow>
+
+      <FiltersBoardRow>
+        <FiltersBoardCol>
+          <TogglerLink>Busca Avançada</TogglerLink>
+        </FiltersBoardCol>
+        <FiltersBoardCol>
+          <ButtonsForm
+            onClickSearch={() => onSearch()}
+            onClickClear={() => ClearData()}
+          />
+        </FiltersBoardCol>
       </FiltersBoardRow>
     </FiltersBoardContainer>
   )
