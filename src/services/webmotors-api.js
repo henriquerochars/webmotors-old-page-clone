@@ -6,7 +6,8 @@ export async function FetchBrands() {
     result.map(brand => {
       return {
         key: brand.ID,
-        value: brand.Name
+        label: brand.Name,
+        value: brand.ID
       }
     })
   )
@@ -21,7 +22,8 @@ export async function FetchModelsByMakeId(makeId) {
       return {
         key: model.ID,
         makeId: model.MakeID,
-        value: model.Name
+        label: model.Name,
+        value: model.ID
       }
     })
   )
@@ -36,7 +38,8 @@ export async function FetchVersionsByModelId(modelId) {
       return {
         key: version.ID,
         modelId: version.ModelID,
-        value: version.Name
+        label: version.Name,
+        value: version.ID
       }
     })
   )

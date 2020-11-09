@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from '../../assets/images/local.png'
 
 import Checkbox from './../Form/Checkbox'
@@ -6,6 +6,12 @@ import PlaceInput from './../Form/PlaceInput'
 import Select from './../Form/Select'
 import ButtonsForm from './../Form/ButtonsForm'
 import TogglerLink from './../Form/TogglerLink'
+
+import {
+  FetchBrands,
+  FetchModelsByMakeId,
+  FetchVersionsByModelId
+} from './../../services/webmotors-api'
 
 import {
   FiltersBoardContainer,
@@ -45,14 +51,14 @@ const FiltersBoard = props => {
     setYear(option.value)
   }
 
-  const onChangeModel = option => {
+  const onChangeModel = async option => {
     setModel(option.value)
-    FetchVersions(option.value)
+    setVersions(await FetchVersionsByModelId(option.value))
   }
 
-  const onChangeBrand = option => {
+  const onChangeBrand = async option => {
     setBrand(option.value)
-    FetchModels(option.value)
+    setModels(await FetchModelsByMakeId(option.value))
   }
 
   const onChangeVersion = option => {
@@ -71,6 +77,12 @@ const FiltersBoard = props => {
     setYear('')
     setVersion('')
   }
+
+  useEffect(async () => {
+    const fetchbrands = await FetchBrands()
+
+    setBrands(fetchbrands)
+  }, [])
 
   return (
     <FiltersBoardContainer>
