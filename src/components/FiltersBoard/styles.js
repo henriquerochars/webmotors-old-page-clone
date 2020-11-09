@@ -23,3 +23,11 @@ export const FiltersBoardCol = styled.div`
     margin-bottom: 10px;
   }
 `
+
+export const FormContainer = styled.div`
+  @media (min-width: 630px) {
+    display: inline-block;
+    vertical-align: top;
+    width: 49%;
+  }
+`
