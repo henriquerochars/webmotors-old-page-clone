@@ -15,7 +15,7 @@ export const TabButton = styled.button`
   border: none;
   border-bottom: 2px solid #ddd;
   outline: none;
-  transition: 0.3s;
+  transition: 0.5s;
 
   ${props => {
     let dinamicClass = '&:hover, &:focus'
@@ -66,16 +66,16 @@ export const TitleLabel = styled.span`
 
 export const OutlineButton = styled.button`
   display: flex;
+  cursor: pointer;
   color: #ff8c00;
   border: 2px solid #ff8c00;
   font-size: 1em;
-  padding: 10px 32px;
   font-weight: bold;
   border-radius: 4px;
+  padding: 10px 32px;
   outline: none;
   background: none;
-  cursor: pointer;
-  transition: 0.3s;
+  transition: 0.5s;
 
   &:hover {
     background-color: #ff8c00;
