@@ -5,6 +5,7 @@ import GlobalStyles from './styles/global'
 
 import Header from './components/Header'
 import HeaderActions from './components/HeaderActions'
+import FiltersBoard from './components/FiltersBoard'
 
 const AppContainer = styled.div`
   @media (min-width: 933px) {
@@ -19,6 +20,7 @@ function App() {
       <AppContainer>
         <Header />
         <HeaderActions />
+        <FiltersBoard />
       </AppContainer>
 
       <GlobalStyles />
