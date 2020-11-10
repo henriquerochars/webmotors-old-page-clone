@@ -1,67 +1,77 @@
 import React, { useState } from 'react'
-import { SelectContainer, SelectButton, ContainerLabel, Label } from './styles'
-import * as S from './styles'
 
-const Select = props => {
-  const { placeholder, onChange, value, label, options, description } = props
+import {
+  SelectContainer,
+  SelectButton,
+  Label,
+  Value,
+  IconContainer,
+  Icon,
+  PlaceContainer,
+  OptionsContainer,
+  Option
+} from './styles'
 
+const Select = ({
+  placeholder,
+  onChange,
+  selected,
+  label,
+  options,
+  description
+}) => {
   const [showOptions, setShowOptions] = useState(false)
 
-  const _onChange = option => {
-    onChange && onChange(option)
+  const handleOnChange = selected => {
+    onChange && onChange(selected)
     setShowOptions(false)
   }
 
-  const displayLabel = value => {
-    const foundOption = options.find(op => {
-      return op.value === value
+  const handleDisplayLabel = selected => {
+    const findSelectedOption = options.find(item => {
+      return item.value === selected
     })
-
-    return foundOption ? foundOption.label : ''
+    return findSelectedOption ? findSelectedOption.label : ''
   }
 
   return (
     <SelectContainer>
       <SelectButton onClick={() => setShowOptions(!showOptions)}>
-        {value ? (
+        {selected ? (
           <>
-            <ContainerLabel>
-              <Label>{label}: </Label>
-            </ContainerLabel>
-            <S.containerValue>
-              <S.value>
-                {displayLabel(value)} {description}
-              </S.value>
-            </S.containerValue>
-            <S.containerIcon>
-              <S.icon />
-            </S.containerIcon>
+            <Label>{label}: </Label>
+            <Value>
+              {handleDisplayLabel(selected)} {description}
+            </Value>
+            <IconContainer>
+              <Icon />
+            </IconContainer>
           </>
         ) : (
           <>
-            <S.containerPlaceholder>
+            <PlaceContainer>
               <Label>{placeholder}</Label>
-            </S.containerPlaceholder>
-            <S.containerIcon>
-              <S.icon />
-            </S.containerIcon>
+            </PlaceContainer>
+            <IconContainer>
+              <Icon />
+            </IconContainer>
           </>
         )}
       </SelectButton>
 
-      {Array.isArray(options) && (
-        <S.containerOptions visible={showOptions} className="containerOptions">
-          {options.map(op => {
+      {Array.isArray(options) && options.length > 0 && (
+        <OptionsContainer isVisible={showOptions}>
+          {options.map(item => {
             return (
-              <S.option
-                key={op.value}
-                onClick={() => _onChange(op)}
-                current={value === op.value}>
-                {op.label}
-              </S.option>
+              <Option
+                key={item.value}
+                onClick={() => handleOnChange(item)}
+                currentOption={selected === item.value}>
+                {item.label}
+              </Option>
             )
           })}
-        </S.containerOptions>
+        </OptionsContainer>
       )}
     </SelectContainer>
   )

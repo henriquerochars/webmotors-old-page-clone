@@ -53,7 +53,7 @@ const PlaceInput = props => {
           containerStyle={containerStyle}
           placeholder="Raio"
           label="Raio"
-          value={distanceOptions}
+          selected={distanceOptions}
           onChange={onChangeDistance}
           options={props.mileages}
         />

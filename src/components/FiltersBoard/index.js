@@ -117,7 +117,7 @@ const FiltersBoard = props => {
                 label="Ano"
                 onChange={onChangeYear}
                 options={years}
-                value={year}
+                selected={year}
               />
             </FiltersBoardCol>
 
@@ -128,7 +128,7 @@ const FiltersBoard = props => {
                 label="R$"
                 onChange={onChangePrice}
                 options={prices}
-                value={price}
+                selected={price}
               />
             </FiltersBoardCol>
           </FiltersBoardRow>
@@ -140,9 +140,9 @@ const FiltersBoard = props => {
               <Select
                 label="Marca"
                 placeholder="Marca:"
-                value={brand}
                 options={brands}
                 onChange={onChangeBrand}
+                selected={brand}
               />
             </FiltersBoardCol>
 
@@ -151,8 +151,8 @@ const FiltersBoard = props => {
                 label="Modelo"
                 onChange={onChangeModel}
                 options={models}
-                value={model}
                 placeholder="Modelo:"
+                selected={model}
               />
             </FiltersBoardCol>
           </FiltersBoardRow>
@@ -163,7 +163,7 @@ const FiltersBoard = props => {
                 label="Versão"
                 onChange={onChangeVersion}
                 options={versions}
-                value={version}
+                selected={version}
               />
             </FiltersBoardCol>
           </FiltersBoardRow>

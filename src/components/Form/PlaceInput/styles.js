@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const PlaceInputContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 37px;
+  height: 35px;
 `
 
 export const PlaceContainer = styled.div`

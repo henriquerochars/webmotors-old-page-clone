@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import iconImage from '../../../assets/images/downArrow.png'
+import downArrowIcon from '../../../assets/images/down-arrow.png'
 
 export const SelectContainer = styled.div`
   display: flex;
@@ -18,78 +18,70 @@ export const SelectButton = styled.button`
   display: flex;
   flex: 1;
   cursor: pointer;
-  background: none;
   padding: 8px 5px;
-  border: none;
+  background: none;
   outline: none;
+  border: none;
   text-align: left;
 `
 
-export const ContainerLabel = styled.div`
+export const Label = styled.div`
   flex: 0 1;
+  color: #999;
+  white-space: nowrap;
+  font-size: 14px;
 `
 
-export const containerOptions = styled.div`
-  display: none;
+export const Value = styled.div`
+  flex: 1;
+  padding: 0 7px;
+  color: #555;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+`
+
+export const IconContainer = styled.div`
+  flex: 0 0 15px;
+  width: 15px;
+  align-self: center;
+  text-align: right;
+`
+
+export const Icon = styled.div`
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background-size: contain;
+  background-image: url('${downArrowIcon}');
+`
+
+export const PlaceContainer = styled.div`
+  flex: 1;
+`
+
+export const OptionsContainer = styled.div`
   position: absolute;
+  display: none;
   width: 100%;
   top: 100%;
   left: 0;
-  background: #fff;
-  border: 1px solid #ddd;
   max-height: 200px;
+  border: 1px solid #ddd;
+  background: #fff;
   overflow-y: auto;
   z-index: 100;
 
   ${props => {
-    if (props.visible) {
+    if (props.isVisible) {
       return `
         display: block;
       `
     }
-
-    return ``
   }}
 `
 
-export const containerPlaceholder = styled.div`
-  flex: 1;
-`
-
-export const containerValue = styled.div`
-  flex: 1;
-  padding: 0 7px;
-`
-
-export const containerIcon = styled.div`
-  flex: 0 0 15px;
-  width: 15px;
-  text-align: right;
-  align-self: center;
-`
-
-export const icon = styled.div`
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  background-image: url('${iconImage}');
-  background-size: contain;
-`
-
-export const Label = styled.div`
-  color: #999;
-  font-size: 14px;
-  white-space: nowrap;
-`
-
-export const value = styled.div`
-  color: #555;
-  font-weight: bold;
-  font-size: 14px;
-  white-space: nowrap;
-`
-
-export const option = styled.button`
+export const Option = styled.button`
   display: block;
   width: 100%;
   padding: 10px;
@@ -107,12 +99,10 @@ export const option = styled.button`
   }
 
   ${props => {
-    if (props.current) {
+    if (props.currentOption) {
       return `
         background: #f4f4f4;
       `
     }
-
-    return ``
   }}
 `
