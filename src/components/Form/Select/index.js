@@ -52,10 +52,10 @@ const Select = ({ placeholder, options, selected, onChange, label }) => {
 
       {Array.isArray(options) && options.length > 0 && (
         <OptionsContainer isVisible={showOptions}>
-          {options.map(item => {
+          {options.map((item, index) => {
             return (
               <Option
-                key={item.value}
+                key={index}
                 onClick={() => handleOnChange(item)}
                 currentOption={selected === item.value}>
                 {item.label}

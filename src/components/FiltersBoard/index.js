@@ -141,8 +141,8 @@ const FiltersBoard = () => {
           </FiltersBoardRow>
 
           <FiltersBoardRow>
-            {content.firstRow.map(item => (
-              <FiltersBoardCol>
+            {content.firstRow.map((item, index) => (
+              <FiltersBoardCol key={index}>
                 <Select
                   placeholder={item.placeholder}
                   label={item.label}
@@ -157,8 +157,8 @@ const FiltersBoard = () => {
 
         <FormContainer>
           <FiltersBoardRow>
-            {content.secondRow.map(item => (
-              <FiltersBoardCol>
+            {content.secondRow.map((item, index) => (
+              <FiltersBoardCol key={index}>
                 <Select
                   placeholder={item.placeholder}
                   label={item.label}
