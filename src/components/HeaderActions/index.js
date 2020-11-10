@@ -22,7 +22,7 @@ const HeaderActions = () => {
         />
       </HeaderColumn>
       <HeaderColumn isFlexEnd={true}>
-        <SellCarButton />
+        <SellCarButton isVisible={false} />
       </HeaderColumn>
     </HeaderContainer>
   )

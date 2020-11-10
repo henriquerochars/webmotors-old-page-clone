@@ -5,6 +5,7 @@ import PlaceInput from './../Form/PlaceInput'
 import Select from './../Form/Select'
 import FormButtons from './../Form/FormButtons'
 import LinkButton from './../Form/LinkButton'
+import SellCarButton from './../HeaderActions/SellCarButton'
 
 import {
   FetchBrands,
@@ -192,6 +193,12 @@ const FiltersBoard = () => {
             onClickGetOffers={() => onSearch()}
             onClickClearFields={() => handleClearFilters()}
           />
+        </FiltersBoardCol>
+      </FiltersBoardRow>
+
+      <FiltersBoardRow>
+        <FiltersBoardCol>
+          <SellCarButton isVisible={true} />
         </FiltersBoardCol>
       </FiltersBoardRow>
     </FiltersBoardContainer>

@@ -86,9 +86,21 @@ export const OutlineButton = styled.button`
     color: #ffffff;
   }
 
-  @media (max-width: 515px) {
-    display: none;
-  }
+  ${props => {
+    if (!props.isVisible) {
+      return `@media (max-width: 515px) {
+                display: none;
+              }`
+    } else {
+      return `
+      display: none;
+      @media (max-width: 515px) {
+        display: flex;
+         width: 100%;
+         justify-content: center;
+      }`
+    }
+  }}
 `
 
 export const SellButtonContainer = styled.div`

@@ -6,10 +6,12 @@ const content = {
   title: 'Vender meu carro'
 }
 
-const SellCarButton = () => {
+const SellCarButton = ({ isVisible }) => {
   return (
     <SellButtonContainer>
-      <OutlineButton customStyle={false}>{content.title}</OutlineButton>
+      <OutlineButton customStyle={false} isVisible={isVisible}>
+        {content.title}
+      </OutlineButton>
     </SellButtonContainer>
   )
 }
