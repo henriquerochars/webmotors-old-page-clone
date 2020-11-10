@@ -12,14 +12,7 @@ import {
   Option
 } from './styles'
 
-const Select = ({
-  placeholder,
-  options,
-  selected,
-  onChange,
-  label,
-  description
-}) => {
+const Select = ({ placeholder, options, selected, onChange, label }) => {
   const [showOptions, setShowOptions] = useState(false)
 
   const handleOnChange = selected => {
@@ -40,9 +33,7 @@ const Select = ({
         {selected ? (
           <>
             <Label>{label}: </Label>
-            <Value>
-              {handleDisplayLabel(selected)} {description}
-            </Value>
+            <Value>{handleDisplayLabel(selected)}</Value>
             <IconContainer>
               <Icon />
             </IconContainer>

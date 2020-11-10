@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Image from '../../assets/images/local.png'
 
 import Checkbox from './../Form/Checkbox'
 import PlaceInput from './../Form/PlaceInput'
@@ -102,11 +101,7 @@ const FiltersBoard = props => {
         <FormContainer className="containerItems">
           <FiltersBoardRow>
             <FiltersBoardCol>
-              <PlaceInput
-                city={'São Paulo - SP'}
-                mileages={props.mileages}
-                icon={Image}
-              />
+              <PlaceInput />
             </FiltersBoardCol>
           </FiltersBoardRow>
 

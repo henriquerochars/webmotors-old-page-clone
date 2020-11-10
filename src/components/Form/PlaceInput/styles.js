@@ -18,7 +18,7 @@ export const PlaceContainer = styled.div`
 `
 
 export const DistanceContainer = styled.div`
-  flex: 0 1;
+  flex: 0 1 120px;
 `
 
 export const IconContainer = styled.div`

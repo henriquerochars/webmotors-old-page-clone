@@ -1,4 +1,8 @@
 import React, { useState } from 'react'
+import localIcon from '../../../assets/images/local.png'
+
+import Select from '../../Form/Select'
+
 import {
   PlaceInputContainer,
   PlaceContainer,
@@ -10,30 +14,26 @@ import {
   Icon,
   Input
 } from './styles'
-import Select from '../../Form/Select'
 
-const PlaceInput = props => {
-  const containerStyle = {
-    borderTopLeftRadius: 0,
-    borderBottomLeftRadius: 0
+const PlaceInput = () => {
+  const [perimeter, setPerimeter] = useState('')
+  const [place, setPlace] = useState('')
+
+  const handleOnChangePerimeter = option => {
+    setPerimeter(option.value)
   }
 
-  const [distanceOptions, setDistanceOptions] = useState()
-  const [city, setCity] = useState()
-
-  const onChangeDistance = option => {
-    setDistanceOptions(option.value)
+  const handleOnChangePlace = option => {
+    setPlace(option.value)
   }
 
-  const onChangeCity = option => {
-    setCity(option.value)
-  }
+  const mockOptions = [{ label: '100km', value: 1 }]
 
   return (
     <PlaceInputContainer>
       <PlaceContainer>
         <IconContainer>
-          <Icon icon={props.icon} />
+          <Icon icon={localIcon} />
         </IconContainer>
         <LabelContainer>
           <Label>Onde:</Label>
@@ -41,21 +41,19 @@ const PlaceInput = props => {
         <InputContainer>
           <Input
             type="text"
-            placeholder="São Paulo - SP"
-            onChange={onChangeCity}
-            value={city}
+            placeholder="Espírito Santo - ES"
+            onChange={handleOnChangePlace}
+            value={place}
           />
         </InputContainer>
       </PlaceContainer>
       <DistanceContainer>
         <Select
-          description={'Km'}
-          containerStyle={containerStyle}
-          placeholder="Raio"
+          placeholder="Raio:"
           label="Raio"
-          selected={distanceOptions}
-          onChange={onChangeDistance}
-          options={props.mileages}
+          selected={perimeter}
+          onChange={handleOnChangePerimeter}
+          options={mockOptions}
         />
       </DistanceContainer>
     </PlaceInputContainer>
