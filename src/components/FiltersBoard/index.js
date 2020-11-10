@@ -4,7 +4,7 @@ import Checkbox from './../Form/Checkbox'
 import PlaceInput from './../Form/PlaceInput'
 import Select from './../Form/Select'
 import FormButtons from './../Form/FormButtons'
-import TogglerLink from './../Form/TogglerLink'
+import LinkButton from './../Form/LinkButton'
 
 import {
   FetchBrands,
@@ -167,7 +167,7 @@ const FiltersBoard = props => {
 
       <FiltersBoardRow>
         <FiltersBoardCol>
-          <TogglerLink>Busca Avançada</TogglerLink>
+          <LinkButton>Busca Avançada</LinkButton>
         </FiltersBoardCol>
         <FiltersBoardCol>
           <FormButtons

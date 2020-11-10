@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-export const Container = styled.button`
-  background: none;
-  border: none;
+export const LinkButtonContainer = styled.button`
+  color: #a33;
   cursor: pointer;
   padding: 5px;
-  color: #a33;
+  background: none;
+  border: none;
 
   &:hover,
   &:focus {
@@ -16,24 +16,24 @@ export const Container = styled.button`
   }
 `
 
-export const Label = styled.div`
+export const LinkButtonLabel = styled.div`
   display: inline-block;
+  font-weight: bold;
   vertical-align: middle;
   padding-left: 10px;
   font-size: 14px;
-  font-weight: bold;
 `
 
-export const Chevron = styled.span`
+export const LinkButtonSpan = styled.span`
   display: inline-block;
-  vertical-align: middle;
   border: 2px solid #a33;
+  vertical-align: middle;
   border-left: none;
   border-bottom: none;
-  transition: 0.5s;
-  transform: rotate(45deg);
   width: 4px;
   height: 4px;
+  transform: rotate(45deg);
+  transition: 0.5s;
 
   &:hover {
     transform: rotate(135deg);
