@@ -6,6 +6,7 @@ export const LinkButtonContainer = styled.button`
   padding: 5px;
   background: none;
   border: none;
+  margin-top: 10px;
 
   &:hover,
   &:focus {
