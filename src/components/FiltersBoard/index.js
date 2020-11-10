@@ -190,7 +190,7 @@ const FiltersBoard = () => {
         </FiltersBoardCol>
         <FiltersBoardCol>
           <FormButtons
-            onClickGetOffers={() => onSearch()}
+            onClickGetOffers={() => {}}
             onClickClearFields={() => handleClearFilters()}
           />
         </FiltersBoardCol>
