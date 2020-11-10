@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { CheckboxButton, Box, Check, CheckboxLabel } from './styles'
 
 const CheckBox = ({ onClick, title, checked }) => {

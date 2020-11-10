@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const container = styled.div`
+export const FormButtonContainer = styled.div`
   display: flex;
   padding-right: 15px;
 
@@ -9,24 +9,31 @@ export const container = styled.div`
   }
 `
 
-export const Row = styled.div`
-  /* padding: 7px 0; */
+export const FormButtonRow = styled.div`
   display: flex;
   flex: 1;
 `
 
-export const col = styled.div`
+export const FormButtonCol = styled.div`
   display: flex;
-  text-align: right;
   flex: 1;
   padding: 0 6px;
+  text-align: right;
+
+  ${props => {
+    if (props.dinamicStyle) {
+      return `& {
+        ${props.dinamicStyle}
+      }`
+    }
+  }}
 `
 
-export const link = styled.button`
+export const Link = styled.button`
+  cursor: pointer;
   border: none;
   background: none;
   outline: none;
-  cursor: pointer;
   font-size: 14px;
   transition: 0.3s;
   color: #999;
@@ -37,14 +44,14 @@ export const link = styled.button`
   }
 `
 
-export const buttonOffers = styled.button`
+export const OfferButton = styled.button`
+  cursor: pointer;
+  background-color: #a33;
+  color: #ffff;
   padding: 15px;
   font-size: 18px;
-  color: #ffff;
   width: 100%;
-  background-color: #a33;
   border: none;
-  cursor: pointer;
   outline: none;
   border-radius: 5px;
 `

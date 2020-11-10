@@ -14,10 +14,10 @@ import {
 
 const Select = ({
   placeholder,
-  onChange,
-  selected,
-  label,
   options,
+  selected,
+  onChange,
+  label,
   description
 }) => {
   const [showOptions, setShowOptions] = useState(false)
