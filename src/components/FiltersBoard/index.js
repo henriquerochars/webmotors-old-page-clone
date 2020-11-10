@@ -19,7 +19,7 @@ import {
   FormContainer
 } from './styles'
 
-const FiltersBoard = props => {
+const FiltersBoard = () => {
   const [checkNewCars, setCheckNewCars] = useState(false)
   const [checkUsedCars, setCheckUsedCars] = useState(false)
   const [year, setYear] = useState()
@@ -30,45 +30,35 @@ const FiltersBoard = props => {
   const [brands, setBrands] = useState([])
   const [models, setModels] = useState([])
   const [versions, setVersions] = useState([])
-  const [prices, setPrices] = useState([
-    { label: '20000,00-40000,00', value: 1 },
-    { label: '400000,00-60000,00', value: 2 },
-    { label: '600000,00-80000,00', value: 3 }
-  ])
-  const [years, setYears] = useState([
-    { label: 2020, value: 1 },
-    { label: 2019, value: 2 },
-    { label: 2018, value: 3 },
-    { label: 2017, value: 4 },
-    { label: 2016, value: 5 },
-    { label: 2015, value: 6 }
-  ])
+  const [prices, setPrices] = useState([])
+  const [years, setYears] = useState([])
+
   const handleCheckBox = (value, checkboxType) =>
     checkboxType === 'new' ? setCheckNewCars(value) : setCheckUsedCars(value)
 
-  const onChangeYear = option => {
+  const handleOnChangeYear = option => {
     setYear(option.value)
   }
 
-  const onChangeModel = async option => {
+  const handleOnChangeModel = async option => {
     setModel(option.value)
     setVersions(await FetchVersionsByModelId(option.value))
   }
 
-  const onChangeBrand = async option => {
+  const handleOnChangeBrand = async option => {
     setBrand(option.value)
     setModels(await FetchModelsByMakeId(option.value))
   }
 
-  const onChangeVersion = option => {
+  const handleOnChangeVersion = option => {
     setVersion(option.value)
   }
 
-  const onChangePrice = option => {
+  const handleOnChangePrice = option => {
     setPrice(option.value)
   }
 
-  const ClearData = () => {
+  const handleClearFilters = () => {
     setBrand('')
     setModel('')
     setPrice('')
@@ -77,10 +67,55 @@ const FiltersBoard = props => {
     setVersion('')
   }
 
+  const content = {
+    firstRow: [
+      {
+        label: 'Ano',
+        placeholder: 'Ano Desejado',
+        options: years,
+        onChange: handleOnChangeYear,
+        selected: year
+      },
+      {
+        label: 'R$',
+        placeholder: 'Faixa de Preço',
+        options: prices,
+        onChange: handleOnChangePrice,
+        selected: price
+      }
+    ],
+    secondRow: [
+      {
+        label: 'Marca',
+        placeholder: 'Marca:',
+        options: brands,
+        onChange: handleOnChangeBrand,
+        selected: brand
+      },
+      {
+        label: 'Modelo',
+        placeholder: 'Modelo:',
+        options: models,
+        onChange: handleOnChangeModel,
+        selected: model
+      }
+    ],
+    thirdRow: {}
+  }
+
   useEffect(async () => {
     const fetchbrands = await FetchBrands()
-
     setBrands(fetchbrands)
+    setPrices([
+      { label: '10.000,00-20.000,00', value: 1 },
+      { label: '20.000,00-30.000,00', value: 2 },
+      { label: '30.000,00-40.000,00', value: 3 }
+    ])
+    setYears([
+      { label: 2020, value: 1 },
+      { label: 2019, value: 2 },
+      { label: 2018, value: 3 }
+    ])
   }, [])
 
   return (
@@ -98,7 +133,7 @@ const FiltersBoard = props => {
         />
       </FiltersBoardRow>
       <FiltersBoardRow>
-        <FormContainer className="containerItems">
+        <FormContainer>
           <FiltersBoardRow>
             <FiltersBoardCol>
               <PlaceInput />
@@ -106,57 +141,40 @@ const FiltersBoard = props => {
           </FiltersBoardRow>
 
           <FiltersBoardRow>
-            <FiltersBoardCol>
-              <Select
-                placeholder="Ano Desejado"
-                label="Ano"
-                onChange={onChangeYear}
-                options={years}
-                selected={year}
-              />
-            </FiltersBoardCol>
-
-            <FiltersBoardCol>
-              <Select
-                key={prices.value}
-                placeholder="Faixa de Preço"
-                label="R$"
-                onChange={onChangePrice}
-                options={prices}
-                selected={price}
-              />
-            </FiltersBoardCol>
+            {content.firstRow.map(item => (
+              <FiltersBoardCol>
+                <Select
+                  placeholder={item.placeholder}
+                  label={item.label}
+                  onChange={item.onChange}
+                  options={item.options}
+                  selected={item.selected}
+                />
+              </FiltersBoardCol>
+            ))}
           </FiltersBoardRow>
         </FormContainer>
 
-        <FormContainer className="containerItems">
+        <FormContainer>
           <FiltersBoardRow>
-            <FiltersBoardCol>
-              <Select
-                label="Marca"
-                placeholder="Marca:"
-                options={brands}
-                onChange={onChangeBrand}
-                selected={brand}
-              />
-            </FiltersBoardCol>
-
-            <FiltersBoardCol>
-              <Select
-                label="Modelo"
-                onChange={onChangeModel}
-                options={models}
-                placeholder="Modelo:"
-                selected={model}
-              />
-            </FiltersBoardCol>
+            {content.secondRow.map(item => (
+              <FiltersBoardCol>
+                <Select
+                  placeholder={item.placeholder}
+                  label={item.label}
+                  onChange={item.onChange}
+                  options={item.options}
+                  selected={item.selected}
+                />
+              </FiltersBoardCol>
+            ))}
           </FiltersBoardRow>
           <FiltersBoardRow>
             <FiltersBoardCol>
               <Select
                 placeholder="Versão:"
                 label="Versão"
-                onChange={onChangeVersion}
+                onChange={handleOnChangeVersion}
                 options={versions}
                 selected={version}
               />
@@ -172,7 +190,7 @@ const FiltersBoard = props => {
         <FiltersBoardCol>
           <FormButtons
             onClickGetOffers={() => onSearch()}
-            onClickClearFields={() => ClearData()}
+            onClickClearFields={() => handleClearFilters()}
           />
         </FiltersBoardCol>
       </FiltersBoardRow>

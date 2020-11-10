@@ -7,6 +7,7 @@ export const CheckboxButton = styled.button`
   border: none;
   background: none;
   outline: none;
+  margin-bottom: 10px;
   cursor: pointer;
 
   ${props => {
